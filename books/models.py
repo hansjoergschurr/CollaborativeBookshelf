@@ -10,6 +10,7 @@ class Book(models.Model):
     bc_isbn = models.TextField("ISBN",null=True, blank=True)
     bc_publisher = models.TextField("Publisher",null=True, blank=True)
     bc_date_published = models.DateField("Date Published",null=True, blank=True)
+    bc_date_published_orig = models.TextField("Date Published Orig",null=True, blank=True)
     bc_rating = models.PositiveSmallIntegerField("Rating", default=0) # rating from 0-5
     bc_bookshelfs = models.ManyToManyField("Bookshelf", blank=True)
     bc_read = models.BooleanField("Read")
@@ -26,6 +27,8 @@ class Book(models.Model):
     bc_location = models.TextField("Location", null=True, blank=True)
     bc_read_start = models.DateField("Read Start",null=True, blank=True)
     bc_read_end = models.DateField("Read End",null=True, blank=True)
+    bc_read_start_orig = models.TextField("Read Start Orig",null=True, blank=True)
+    bc_read_end_orig = models.TextField("Read End Orig",null=True, blank=True)
     bc_book_format = models.TextField("Book Format", null=True, blank=True)
     bc_signed = models.BooleanField("Signed",default = False)
     bc_loaned_to = models.TextField("Loaned To", null=True, blank=True)
