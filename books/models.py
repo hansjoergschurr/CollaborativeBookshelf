@@ -43,5 +43,6 @@ class Book(models.Model):
     bc_uuid = models.UUIDField("UUID",default=uuid.uuid4)
 
 class Bookshelf(models.Model):
+    user = models.ForeignKey(User)
     bc_export_id = models.PositiveIntegerField("Export ID")
     bc_name = models.TextField("Name",null=True, blank=True)
