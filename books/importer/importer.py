@@ -15,12 +15,15 @@ class Importer:
         if ds=="0000-00-00":
             return datetime.date(1970,1,1)
         ds = ds.split('-')
-        if len(ds)==3:
-            return datetime.date(int(ds[0]),int(ds[1]),int(ds[2]))
-        if len(ds)==2:
-            return datetime.date(int(ds[0]),int(ds[1]),1)
-        if len(ds)==1:
-            return datetime.date(int(ds[0]),1,1)
+        try:
+            if len(ds)==3:
+                return datetime.date(int(ds[0]),int(ds[1]),int(ds[2]))
+            if len(ds)==2:
+                return datetime.date(int(ds[0]),int(ds[1]),1)
+            if len(ds)==1:
+                return datetime.date(int(ds[0]),1,1)
+        except ValueError:
+            pass
         return None
 
     def _valueOrNull(self, s):
@@ -30,7 +33,10 @@ class Importer:
             return int(s)
 
     def _dt(self, s):
-        datetime.datetime.strptime(s,"%Y-%m-%d %H:%M:%S")
+        try:
+            return datetime.datetime.strptime(s,"%Y-%m-%d %H:%M:%S")
+        except ValueError:
+            return None
 
     def _readRow(self, row):
         book = Book()
@@ -81,9 +87,7 @@ class Importer:
                         bookshelf = Bookshelf.objects.get(bc_export_id = bookshelf_id, user = self.user)
                         bookshelf.bc_name = n
                     except Bookshelf.DoesNotExist:
-                        bookshelf = Bookshelf()
-                        bookshelf.bc_export_id = bookshelf_id
-                        bookshelf.bc_name = n
+                        bookshelf = Bookshelf(bc_export_id = bookshelf_id, bc_name = n, user = self.user)
                     self.bookshelfs[bookshelf_id] = bookshelf
                 b.append(bookshelf_id)
             except ValueError:
