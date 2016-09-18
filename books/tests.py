@@ -28,7 +28,7 @@ class ImporterTestsCase(TestCase):
         self.assertEqual(len(i.books), 3)
         self.assertEqual(len(i.bookshelfs), 2)
         self.assertEqual(i.bookshelfs[2], self.bs)
-        
+
         self.assertEqual(i.bookshelfs[1].bc_name, "Schrank")
         self.assertEqual(i.bookshelfs[1].user, self.u1)
 
