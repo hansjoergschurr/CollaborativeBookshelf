@@ -1,0 +1,20 @@
+<div class="pure-menu">
+    <span class="pure-menu-heading">Books</span>
+
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="{% url 'books' %}" class="pure-menu-link">Collection</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Import</a></li>
+    </ul>
+
+    <span class="pure-menu-heading">Account</span>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="{% url 'password_change' %}" class="pure-menu-link">Settings</a></li>
+        <li class="pure-menu-item"><a href="{% url 'logout' %}" class="pure-menu-link">Logout</a></li>
+    </ul>
+	{% if user.is_staff %}
+    <span class="pure-menu-heading">Admin</span>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="/admin" class="pure-menu-link">Backend</a></li>
+    </ul>
+	{% endif %}
+</div>

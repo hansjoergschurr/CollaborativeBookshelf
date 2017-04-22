@@ -19,8 +19,10 @@ from django.contrib import admin
 from books import views
 
 urlpatterns = [
-    url(r'^books/list', views.bookList, name='books'),
+    url(r'^books/list', views.BookListView.as_view(), name='books'),
 
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^', views.BookListView.as_view()),
 ]

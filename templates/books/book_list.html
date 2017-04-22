@@ -1,0 +1,12 @@
+{% extends 'base_men.html' %}
+
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+<h2>Books in the Collection</h2>
+<ul>
+{% for book in object_list %}
+  <li>{{ book.bc_title }} by {{ book.bc_author_details}}
+{% endfor %}
+</ul>
+{% endblock %}

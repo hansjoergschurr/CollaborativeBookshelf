@@ -3,10 +3,12 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
+  <form class="pure-form pure-form-stacked" method="post">
+     {% csrf_token %}
+    <fieldset>
+      <legend>Login</legend>
+      {{ form.as_p }}
+      <button class="pure-button pure-button-primary" type="submit">Login</button>
+    </fieldset>
   </form>
 {% endblock %}

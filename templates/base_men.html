@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+
+{% block structure %}
+    <div class="pure-u-1-5">
+      {% include "menu.html" %}
+    </div>
+    <div class="pure-u-4-5">
+    {% block content %}
+      Content!
+    {% endblock %}</div>
+{% endblock %}
