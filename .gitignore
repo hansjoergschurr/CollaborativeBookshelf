@@ -56,5 +56,9 @@ docs/_build/
 # PyBuilder
 target/
 
+# Custom
 db.sqlite3
 static/pure*
+*.csv
+# Temprarily remove migrations from git
+*/migrations/*
