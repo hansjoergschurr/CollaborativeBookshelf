@@ -9,11 +9,13 @@ If you want to try out the current development version of the project, first
 ensure that python3 is installet. Then run the following commands in the root
 directory of the project:
 
-> source env/bin/activate
-> pip install -r requirements.txt
-> ./manage.py makemigrations books
-> ./manage.py migrate
-> ./manage.py createsuperuser 
-> ./manage.py runserver
+```
+source env/bin/activate
+pip install -r requirements.txt
+./manage.py makemigrations books
+./manage.py migrate
+./manage.py createsuperuser 
+./manage.py runserver
+```
 
-and navigate your browser to [http://localhost:8000].
+and navigate your browser to (http://localhost:8000).
